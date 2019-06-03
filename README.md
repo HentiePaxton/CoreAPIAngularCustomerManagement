@@ -19,7 +19,7 @@ Instead of using all my existing code libaries and previous projects, i have dec
     * Navigate to appsettings.json
     ![alt text](http://url/to/img.png)
     * Update Connection String - (I used a local SQL Server)
-    ![alt text](http://url/to/img.png)
+    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/ConnectionString.PNG)
     * Run Using IIS Express
     ![alt text](http://url/to/img.png)
     * The CompanyDB will automatically be migrated to SQL using your connection string.
