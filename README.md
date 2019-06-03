@@ -16,15 +16,15 @@ I wanted to showcase my capabilities, for when the occasion every arises and the
 
 # Getting Started
 ##1.	Installation process
-    * Clone repo from Git.
-    * Open solution with Visual Studio 2019 
-    * Navigate to appsettings.json
-    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/appsettings.PNG)
-    * Update Connection String - (I used a local SQL Server)
-    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/ConnectionString.PNG)
-    * Run Using IIS Express
-    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/IISExpress.PNG)
-    * The CompanyDB will automatically be migrated to SQL using your connection string.
+    -  Clone repo from Git.
+    -  Open solution with Visual Studio 2019 
+    -  Navigate to appsettings.json
+    - ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/appsettings.PNG)
+    -  Update Connection String - (I used a local SQL Server)
+    - ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/ConnectionString.PNG)
+    -  Run Using IIS Express
+    - ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/IISExpress.PNG)
+    -  The CompanyDB will automatically be migrated to SQL using your connection string.
     
 
 ##2.	Software dependencies
