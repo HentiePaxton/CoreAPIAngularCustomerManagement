@@ -1,16 +1,18 @@
+
 # .Net Core-API, Angular 6, Customer Management
 
 # Introduction
 This is my interview project for Propellerhead. 
 
-Instead of using all my existing code libaries and previous projects, i have decided that it would be a code idea to challange myself and do this project in the latest Tech from scratch.
+This really was a fun project to do, and it did push me to think FullStack while working on the project.
 
-  Altough there are many tools available today, which would have split my development time in half.
+Instead of using all my existing code libraries and previous projects, i have decided that it would be a good idea to challenge myself and do this project in the latest tech from scratch.
+
+  Although there are many tools available today, which would have split my development time in half, I took the path of doing lot of custom development, especially in angular. 
+
+I wanted to showcase my capabilities, for when the occasion every arises and the right tool was not available.
   
-  I have done a lot of custom development, especially in angular. The reason is that i wanted to showcase some of my capabilities, when the occasion had to arrise where the right tool was not available.
-  
-  All of this was quite alot of work to do manually and build the custom components, where time forced me to avoid building more re-usable libraries and fuctions. If this project might grow bigger and I have more time, I will 1st do a code clean-up, refactor
-  and update most of my code and packages it's best version.
+  I will definitely carry on with this shell in the futures, after doing some code clean-up, refactor to allow my code to be more re-usable and dynamic, with a bit more time.
 
 # Getting Started
 ##1.	Installation process
@@ -36,7 +38,7 @@ Although i initially created the database using database first, and EF reverse e
 I have also added code to check and insert the required status upon migration and provide you with a test user.
 ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/Migration.PNG)
 
-# In the case of Emergancy
+# In the case of Emergency
 ## Database not migrating
 Don't stress. I scripted the database schema and data. 
 This script can be found under the root repo folder: CoreAPIAngularCustomerManagement\SQL Scripts\FullDatabaseScriptWithData.sql
