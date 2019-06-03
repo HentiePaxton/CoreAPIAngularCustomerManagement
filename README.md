@@ -17,11 +17,11 @@ Instead of using all my existing code libaries and previous projects, i have dec
     * Clone repo from Git.
     * Open solution with Visual Studio 2019 
     * Navigate to appsettings.json
-    ![alt text](http://url/to/img.png)
+    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/appsettings.PNG)
     * Update Connection String - (I used a local SQL Server)
     ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/ConnectionString.PNG)
     * Run Using IIS Express
-    ![alt text](http://url/to/img.png)
+    ![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/IISExpress.PNG)
     * The CompanyDB will automatically be migrated to SQL using your connection string.
     
 
@@ -32,10 +32,9 @@ Instead of using all my existing code libaries and previous projects, i have dec
 
 # Note
 Although i initially created the database using database first, and EF reverse engineer. I added code on the statup.cs which will ensure that the database is created. 
-![alt text](http://url/to/img.png)
 
 I have also added code to check and insert the required status upon migration and provide you with a test user.
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/HentiePaxton/CoreAPIAngularCustomerManagement/blob/master/Git%20Images/Migration.PNG)
 
 # In the case of Emergancy
 ## Database not migrating
