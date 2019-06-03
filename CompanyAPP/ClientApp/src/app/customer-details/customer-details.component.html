@@ -1,0 +1,180 @@
+<h1>
+  Customer Details
+  <small *ngIf="customer.createDate" class="pull-right"><small>Created on: {{customer.createDate}}</small></small>
+</h1>
+
+<form (ngSubmit)="f.form.valid && SaveCustomer()" #f="ngForm" novalidate>
+  <br />
+
+  <div class="row">
+    <div class="col-md-4 ">
+      <label>Status *</label>
+      <select class='form-control' #status="ngModel" name="status" [(ngModel)]='customer.fkStatusId' required>
+        <option *ngFor="let status of statusList" [ngValue]="status.pkStatusId">{{status.status1}}</option>
+      </select>
+      <div *ngIf="f.submitted && status.invalid" class="invalid-feedback">
+        <div *ngIf="status.errors.required">Status is required</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="moreDetails" class="more">
+    <h4>Basic Info:</h4>
+    <div class="row">
+      <div class="col-md-4 ">
+        <label>First name *</label>
+        <input type="text" class="form-control " maxlength="20" [(ngModel)]="customer.firstname" #firstName="ngModel" name="firstname" placeholder="First name" required>
+        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+          <div *ngIf="firstName.errors.required">First Name is required</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ">
+        <label>Last name *</label>
+        <input type="text" class="form-control " maxlength="20" [(ngModel)]="customer.lastname" #lastname="ngModel" name="lastname" placeholder="Last name" required>
+        <div *ngIf="f.submitted && lastname.invalid" class="invalid-feedback">
+          <div *ngIf="lastname.errors.required">Last Name is required</div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+
+      <div class="col-md-4 ">
+
+        <label>Passport No *</label>
+        <input type="text" class="form-control " maxlength="13" [(ngModel)]="customer.passportNo" #passportNo="ngModel" name="passportNo" placeholder="Passport No" required>
+        <div *ngIf="f.submitted && passportNo.invalid" class="invalid-feedback">
+          <div *ngIf="passportNo.errors.required">Passport No is required</div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+    <br />
+
+    <h4>Contact Details:</h4>
+
+    <div class="row">
+
+      <div class="col-md-4 ">
+        <label>Cell No *</label>
+        <input type="tel" class="form-control " maxlength="12" [(ngModel)]="customer.cellNo" name="cellNo" #cellNo="ngModel" placeholder="012 121 1211" required>
+        <div *ngIf="f.submitted && cellNo.invalid" class="invalid-feedback">
+          <div *ngIf="cellNo.errors.required">Cell No is required</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ">
+        <label>Email *</label>
+        <input type="email" class="form-control " maxlength="70" [(ngModel)]="customer.email" name="email" #email="ngModel" placeholder="Email" required>
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Email is required</div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <h4>Address:</h4>
+
+    <div class="row">
+      <div class="col-md-10 ">
+
+        <label>Address *</label>
+        <input type="text" class="form-control " maxlength="200" [(ngModel)]="customer.address" name="address" #Address="ngModel" placeholder="Address" required>
+        <div *ngIf="f.submitted && Address.invalid" class="invalid-feedback">
+          <div *ngIf="Address.errors.required">Address is required</div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="row">
+
+      <div class="col-md-4 ">
+        <label>City *</label>
+        <input type="text" class="form-control " maxlength="20" [(ngModel)]="customer.city" name="city" #City="ngModel" placeholder="City" required>
+        <div *ngIf="f.submitted && City.invalid" class="invalid-feedback">
+          <div *ngIf="City.errors.required">City is required</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ">
+        <label>Region *</label>
+        <input type="text" class="form-control " maxlength="20" [(ngModel)]="customer.region" name="region" #Region="ngModel" placeholder="Region" required>
+        <div *ngIf="f.submitted && Region.invalid" class="invalid-feedback">
+          <div *ngIf="Region.errors.required">Region is required</div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <div class="row">
+
+      <div class="col-md-4 ">
+        <label>Country *</label>
+        <input type="text" class="form-control " maxlength="20" [(ngModel)]="customer.country" name="country" #Country="ngModel" placeholder="Country" required>
+        <div *ngIf="f.submitted && Country.invalid" class="invalid-feedback">
+          <div *ngIf="Country.errors.required">Country is required</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ">
+        <label>Postal Code *</label>
+        <input type="text" class="form-control " maxlength="6" [(ngModel)]="customer.postalCode" name="postalCode" #postalCode="ngModel" placeholder="Postal Code" required>
+        <div *ngIf="f.submitted && postalCode.invalid" class="invalid-feedback">
+          <div *ngIf="postalCode.errors.required">Postal Code is required</div>
+        </div>
+      </div>
+      <div class="col-md-4 pull-right">
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <br />
+  <h4>Notes:</h4>
+  <div class="row">
+
+    <button *ngIf="this.customer.note != null && this.customer.note.length == 0" type="button" (click)="AddNote()" class="btn btn-success"><i class="	glyphicon glyphicon-plus"></i></button>
+
+
+    <div class="col-md-10 " *ngFor="let note of customer.note">
+      <div class="row">
+        <div class="col-md-10 ">
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Add your notes..." [(ngModel)]="note.note1" name="note{{customer.note.indexOf(note)}}"></textarea>
+          </div>
+        </div>
+        <div class="col-md-2 ">
+          <button type="button" (click)="AddNote()" class="btn btn-success"><i class="	glyphicon glyphicon-plus"></i></button>
+          <button type="button" (click)="RemoteNote(note)" class="btn btn-danger"><i class="	glyphicon glyphicon-minus"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <br />
+    <span (click)="moreDetails = !moreDetails" style="color: blue; float: right; margin-right:30px;" role="button">More Details</span>
+  </div>
+
+  <br />
+
+  <a [routerLink]="['customers']" class="btn btn-danger">Back To List</a>
+  <button class="btn btn-success" type="submit">Save</button>
+  <br />
+  <br />
+
+
+
+</form>

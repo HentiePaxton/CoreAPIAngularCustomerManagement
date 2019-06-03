@@ -1,0 +1,73 @@
+<h1>Customers
+  <a class="pull-right btn btn-success" [routerLink]="['customer-details']" >+ New Customer</a></h1>
+
+
+<p *ngIf="!customers"><em>Loading...</em></p>
+
+  <div class="row" style="margin-right: 30px;">
+
+    <div class="col-md-3">
+      <div class="form-group">
+        Page Size
+        <select class="form-control" [(ngModel)]="pageSize" (ngModelChange)="fiterCustomers()">
+          <option value="10">10 items per page</option>
+          <option value="25">25 items per page</option>
+          <option value="50">50 items per page</option>
+        </select>
+      </div>
+
+    </div>
+    <div class="col-md-2 pull-right searchDiv">
+      <div class="form-inline">
+        Search <input class="form-control ml-2" [(ngModel)]="searchTerm" (ngModelChange)="fiterCustomers()" type="text" name="searchTerm" />
+      </div>
+    </div>
+
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th *ngFor="let header of tableHeaders" scope="col" (click)="sort(header)">
+          {{header.name}}
+          <span *ngIf="header.sort && (header.direction == 'asc')" class="glyphicon glyphicon-triangle-bottom"></span>
+          <span *ngIf="header.sort && (header.direction == 'desc')" class="glyphicon glyphicon-triangle-top"></span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.firstname }}</td>
+        <td>{{ customer.lastname }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.cellNo }}</td>
+        <td>{{(customer.fkStatus)? customer.fkStatus.status1 : '' }}</td>
+        <td>{{ customer.passportNo }}</td>
+        <td><a [routerLink]="['customer-details']" [queryParams]="{ id: customer.pkCustomerId }" class="btn btn-primary">Edit / Add Note</a></td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+
+    <nav aria-label="..." class="pull-right">
+      <ul class="pagination">
+        <li *ngIf="!firstRowOnPage" class="page-item ">
+          <a (click)="fiterCustomers(page - 1)" class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item" [ngClass]="{'active' : ((x + 1) == page)}" *ngFor="let dummy of ' '.repeat(pageCount).split(''), let x = index ">
+          <a (click)="fiterCustomers(x + 1)" class="page-link">{{x + 1}}</a>
+        </li>
+        <!--<li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>-->
+        <li *ngIf="!lastRowOnPage" class="page-item">
+          <a (click)="fiterCustomers(page + 1)" class="page-link" >Next</a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
